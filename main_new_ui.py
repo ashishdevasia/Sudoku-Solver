@@ -43,6 +43,10 @@ for i in range(9):
         text_objects[i].append(font.render("", True, blue))
 
 def draw():
+    '''
+    This is the function that needs to be called in order to draw the state of the board at any given time.
+    Limited by FPS in order to not compromise with the solving speed.
+    '''
     global old_time
     if (time.time() - old_time) < time_delay:
         return
@@ -75,6 +79,9 @@ def draw():
     pygame.quit()
 
 def validate(guess,r,c):
+    '''
+    Checks if the number 'guess' is a valid number in the cell represented by r,c.
+    '''
     if guess in board[r]:
         return False
     else:
